@@ -27,10 +27,12 @@ const Navbar = () => {
     }
   }, [scrollDirection]);
 
+  //TODO: Make this responsive
+
   return (
     <div
       className={clsx(
-        "w-full transition ease-in-out delay-300 duration-300 flex flex-row justify-between py-4 px-12 top-0 sticky z-10 backdrop-blur-sm  bg-darkNavy/[0.9] font-mono",
+        "w-full transition ease-in-out delay-300 duration-300 flex flex-row justify-between py-4 px-12 top-0 fixed z-10 backdrop-blur-sm  bg-darkNavy/[0.9] font-mono",
         {
           "-translate-y-full": !show,
           "translate-y-0": show,

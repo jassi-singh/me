@@ -10,7 +10,8 @@ const Intro = () => {
     }, 500);
   }, []);
   return (
-    <section className="tracking-widest h-screen px-48 py-40">
+    //TODO: Make this responsive
+    <section className="tracking-widest h-screen pl-60 py-48">
       <div
         className={clsx(
           "transition duration-300 opacity-0 text-green font-mono",
