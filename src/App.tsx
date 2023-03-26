@@ -1,9 +1,13 @@
+import Intro from "./components/Intro";
 import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="font-mono h-screen bg-darkNavy">
+    <div className="bg-darkNavy flex flex-col">
       <Navbar />
+      <Intro />
+
+      {/* <div className="h-96"></div> */}
     </div>
   );
 }

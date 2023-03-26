@@ -7,7 +7,7 @@ export interface NavItemProps {
 
 const NavItem = (props: NavItemProps) => {
   return (
-    <a href={props.link} className="hover:text-green cursor-pointer">
+    <a href={props.link} className="hover:text-green cursor-pointer text-xs tracking-widest text-white">
       {props.name}
     </a>
   );

@@ -4,6 +4,7 @@ import {
   ScrollDirection,
   useScrollDirection,
 } from "../hooks/useScrollDirection";
+import Button from "./Button";
 import NavItem, { NavItemProps } from "./NavItem";
 
 const navItems: NavItemProps[] = [
@@ -15,7 +16,7 @@ const navItems: NavItemProps[] = [
 
 const Navbar = () => {
   const scrollDirection = useScrollDirection();
-  const [show, setShow] = React.useState(true);
+  const [show, setShow] = React.useState(false);
 
   React.useEffect(() => {
     console.log(scrollDirection);
@@ -29,7 +30,7 @@ const Navbar = () => {
   return (
     <div
       className={clsx(
-        "transition ease-in-out delay-500 duration-300 flex flex-row justify-between py-4 px-12 sticky top-0 z-10 backdrop-blur-sm  bg-darkNavy/[0.9]",
+        "w-full transition ease-in-out delay-300 duration-300 flex flex-row justify-between py-4 px-12 top-0 sticky z-10 backdrop-blur-sm  bg-darkNavy/[0.9] font-mono",
         {
           "-translate-y-full": !show,
           "translate-y-0": show,
@@ -37,14 +38,9 @@ const Navbar = () => {
       )}
     >
       <span className="text-green text-xl tracking-widest">JS</span>
-      <ul className="flex flex-row gap-6 font-light text-xs tracking-widest text-white items-center">
+      <ul className="flex flex-row gap-6 items-center">
         {navItems.map((item) => NavItem(item))}
-        <a
-          href="/resume"
-          className="cursor-pointer text-green ring-1 ring-green p-3 rounded-md hover:bg-green/[0.2]"
-        >
-          Resume
-        </a>
+        <Button name="Resume" link={"/resume"} />
       </ul>
     </div>
   );
