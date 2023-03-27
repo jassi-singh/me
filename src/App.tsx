@@ -14,7 +14,7 @@ function App() {
           href="mailto:jaswinder.dandyan2000@gmail.com"
           target="_blank"
           rel="noreferrer"
-          className="hover:text-green cursor-pointer text-slate text-xs font-mono tracking-widest"
+          className="hover:text-primary cursor-pointer text-slate text-xs font-mono tracking-widest"
           style={{ writingMode: "vertical-rl" }}
         >
           Jaswinder.dandyan2000@gmail.com

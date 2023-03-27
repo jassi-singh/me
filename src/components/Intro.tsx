@@ -14,7 +14,7 @@ const Intro = () => {
     <section className="tracking-widest h-screen pl-60 py-48">
       <div
         className={clsx(
-          "transition duration-300 opacity-0 text-green font-mono",
+          "transition duration-300 opacity-0 text-primary font-mono",
           {
             "opacity-100": show,
           }
@@ -56,7 +56,7 @@ const Intro = () => {
           href="https://www.curer.app"
           target="_blank"
           rel="noreferrer"
-          className="text-green"
+          className="text-primary"
         >
           Curer
         </a>{" "}

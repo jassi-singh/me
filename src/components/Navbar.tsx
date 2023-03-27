@@ -38,7 +38,7 @@ const Navbar = () => {
         }
       )}
     >
-      <span className="text-green text-xl tracking-widest">JS</span>
+      <span className="text-primary text-xl tracking-widest">JS</span>
       <ul className="flex flex-row gap-6 items-center">
         {navItems.map((item, idx) => (
           <NavItem key={idx} {...item} />
