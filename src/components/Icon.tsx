@@ -6,7 +6,7 @@ const Icon = (props: { icon: ReactElement; link: string }) => {
       href={props.link}
       target="_blank"
       rel="noreferrer"
-      className="text-darkSlate hover:text-green cursor-pointer text-lg hover:-translate-y-1 hover:scale-125 transition duration-300"
+      className="text-darkSlate hover:text-green cursor-pointer text-lg hover:-translate-y-1 hover:scale-125 transition duration-400"
     >
       {props.icon}
     </a>

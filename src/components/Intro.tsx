@@ -24,7 +24,7 @@ const Intro = () => {
       </div>
       <div
         className={clsx(
-          "transition duration-300 delay-300 opacity-0 text-lightSlate text-7xl font-bold py-3",
+          "transition duration-400 opacity-0 text-lightSlate text-7xl font-bold py-3",
           {
             "opacity-100": show,
           }
@@ -34,7 +34,7 @@ const Intro = () => {
       </div>
       <div
         className={clsx(
-          "transition duration-300 delay-500 opacity-0 text-darkSlate text-7xl font-bold",
+          "transition duration-500 opacity-0 text-darkSlate text-7xl font-bold",
           {
             "opacity-100": show,
           }
@@ -44,7 +44,7 @@ const Intro = () => {
       </div>
       <div
         className={clsx(
-          "transition duration-300 delay-700 opacity-0 text-darkSlate w-1/2 pt-6 pb-12",
+          "transition duration-700 opacity-0 text-darkSlate w-1/2 pt-6 pb-12",
           {
             "opacity-100": show,
           }
@@ -63,7 +63,7 @@ const Intro = () => {
         as a Software Engineer.
       </div>
       <div
-        className={clsx("transition duration-300 delay-1000 opacity-0", {
+        className={clsx("transition duration-1000 opacity-0", {
           "opacity-100": show,
         })}
       >

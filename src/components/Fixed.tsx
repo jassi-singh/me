@@ -11,12 +11,12 @@ const Fixed = (props: FixedProps) => {
   React.useEffect(() => {
     setTimeout(() => {
       setShow(true);
-    }, 1700);
+    }, 1000);
   });
   return (
     <div
       className={clsx(
-        "transition duration-300 fixed bottom-0 px-20 flex flex-col items-center gap-10 opacity-0",
+        "transition duration-400 delay-300 fixed bottom-0 px-20 flex flex-col items-center gap-10 opacity-0",
         {
           "left-0": props.position === "left",
           "right-0": props.position === "right",
