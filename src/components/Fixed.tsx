@@ -9,18 +9,16 @@ export interface FixedProps {
 const Fixed = (props: FixedProps) => {
   const [show, setShow] = React.useState(false);
   React.useEffect(() => {
-    setTimeout(() => {
-      setShow(true);
-    }, 1000);
-  });
+    setShow(true);
+  }, []);
   return (
     <div
       className={clsx(
-        "transition duration-400 delay-300 fixed bottom-0 px-20 flex flex-col items-center gap-10 opacity-0",
+        "hidden lg:flex transition-all ease-out duration-1000 delay-1000 fixed bottom-0 lg:px-10 xl:px-20 flex-col items-center gap-10",
         {
           "left-0": props.position === "left",
           "right-0": props.position === "right",
-          "opacity-100": show,
+          "translate-y-full": !show,
         }
       )}
     >
