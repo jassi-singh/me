@@ -29,6 +29,8 @@ const Navbar = () => {
     }
   }, [scrollDirection]);
 
+  
+
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
@@ -55,7 +57,7 @@ const Navbar = () => {
         className={clsx(
           "transition-all duration-300 w-2/3 absolute flex flex-col gap-2 items-center top-0 right-0 h-screen bg-navy lg:w-auto lg:h-auto lg:flex-row lg:relative lg:justify-end lg:static lg:bg-transparent lg:gap-6",
           {
-            "translate-x-full lg:translate-x-0": showSidebar,
+            "translate-x-full lg:translate-x-0": !showSidebar,
           }
         )}
       >
