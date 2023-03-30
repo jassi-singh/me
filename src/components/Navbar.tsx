@@ -36,7 +36,7 @@ const Navbar = () => {
   return (
     <nav
       className={clsx(
-        "w-full transition-all ease-out duration-1000 flex flex-row justify-between items-center py-4 px-12 top-0 fixed z-30 backdrop-blur-sm bg-darkNavy/[0.9] font-mono",
+        "w-full transition-all ease-out duration-1000 flex flex-row justify-between items-center py-4 px-12 top-0 fixed z-30 backdrop-blur-sm bg-darkNavy/[0.9] font-mono shadow-lg",
         {
           "-translate-y-full": !show,
           "translate-y-0": show,

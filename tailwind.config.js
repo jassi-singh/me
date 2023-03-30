@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,6 +13,7 @@ module.exports = {
       lightSlate: "#ccd6f6",
       white: "#e6f1ff",
       primary: colors.cyan[400],
+      transparent: colors.transparent,
     },
     extend: {},
   },
