@@ -126,11 +126,11 @@ const Skills = () => {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen px-20 sm:px-40 xl:px-60 py-24"
+      className="min-h-screen px-20 sm:px-40 xl:px-60 py-24 overflow-x-hidden"
     >
       <div
         className={clsx("transition-all ease-in-out duration-1000", {
-          "translate-x-full": !show,
+          "translate-x-full opacity-0": !show,
         })}
       >
         <Title index={1} title="My Skills" />
@@ -139,7 +139,7 @@ const Skills = () => {
         className={clsx(
           "transition-all ease-in-out duration-1000 grid md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 mt-10 gap-6",
           {
-            "-translate-x-full": !show,
+            "-translate-x-full opacity-0": !show,
           }
         )}
       >
