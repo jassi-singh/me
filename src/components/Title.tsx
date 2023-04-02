@@ -7,7 +7,7 @@ const Title = (props: { index: number; title: string }) => {
       <span className="text-lightSlate text-3xl font-bold py-3">
         {props.title}
       </span>
-      <span className="inline-block border-t border-lightNavy mb-2 ml-16 self-center flex-grow"></span>
+      <span className="border-t border-lightNavy mb-2 ml-2 md:ml-16 self-center hidden sm:block flex-grow"></span>
     </div>
   );
 };

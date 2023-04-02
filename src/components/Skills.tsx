@@ -126,7 +126,7 @@ const Skills = () => {
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen px-20 sm:px-40 xl:px-60 py-24 overflow-x-hidden"
+      className="min-h-screen px-20 sm:px-40 xl:px-60 py-24 sm:overflow-x-hidden"
     >
       <div
         className={clsx("transition-all ease-in-out duration-1000", {
