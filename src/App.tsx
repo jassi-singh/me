@@ -4,7 +4,7 @@ import Fixed from "./components/Fixed";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si";
 import Icon from "./components/Icon";
-import About from "./components/About";
+import About from "./components/Skills";
 
 function App() {
   return (
