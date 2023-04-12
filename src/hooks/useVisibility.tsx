@@ -10,7 +10,7 @@ export default function useVisibility(
     () =>
       new IntersectionObserver(
         ([entry]) => setIsIntersecting(entry.isIntersecting),
-        { rootMargin: rootMargin ?? "-200px" }
+        { rootMargin: rootMargin ?? "-100px" }
       ),
     [rootMargin]
   );

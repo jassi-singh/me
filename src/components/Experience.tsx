@@ -56,7 +56,7 @@ const Experience = () => {
     <section
       ref={ref}
       id="experience"
-      className="h-screen px-24 sm:px-40 xl:px-80 pt-48 overflow-x-hidden"
+      className="min-h-screen px-12 md:px-40 xl:px-80 py-24 md:py-48 overflow-x-hidden"
     >
       <div
         className={clsx("transition-all ease-in-out duration-1000", {

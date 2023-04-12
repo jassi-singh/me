@@ -11,7 +11,7 @@ const Intro = () => {
   return (
     <section
       className={clsx(
-        "transition-all ease-out duration-1000 delay-1000 pt-32 lg:pt-0 content-start lg:content-center tracking-widest px-8 lg:px-40 xl:48 h-screen grid lg:grid-cols-3 gap-10",
+        "transition-all ease-out duration-1000 delay-1000 pt-32 lg:pt-0 content-start lg:content-center tracking-widest px-12 md:px-40 xl:48 h-screen grid lg:grid-cols-3 gap-10",
         {
           "-translate-y-full": !show,
         }
