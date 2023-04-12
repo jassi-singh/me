@@ -105,7 +105,7 @@ const Skills = () => {
   }, [isInViewport]);
 
   return (
-    <section id="skills" ref={ref} className="px-20 sm:px-40 xl:px-60">
+    <section id="skills" ref={ref} className="px-20 sm:px-40 xl:px-60 pt-20 overflow-x-hidden">
       <div
         className={clsx("transition-all ease-in-out duration-1000", {
           "translate-x-full opacity-0": !show,

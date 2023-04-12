@@ -4,7 +4,8 @@ import Fixed from "./components/Fixed";
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
 import { SiLeetcode } from "react-icons/si";
 import Icon from "./components/Icon";
-import About from "./components/Skills";
+import Skills from "./components/Skills";
+import Experience from "./components/Experience";
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
       </Fixed>
       <Navbar />
       <Intro />
-      <About />
+      <Skills />
+      <Experience />
     </div>
   );
 }
