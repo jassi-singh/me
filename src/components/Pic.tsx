@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import jassi from "../jassi.jpeg";
+import jassi from "../images/jassi.jpeg";
 
 const Pic = () => {
   const [isHovered, setIsHovered] = React.useState(false);
