@@ -12,7 +12,7 @@ const Project = (props: ProjectInterface) => {
     <div className="grid grid-cols-5 gap-6 place-items-center">
       <div className="opacity-20 lg:opacity-100 col-span-full lg:col-[1/4] row-span-full relative bg-primary rounded-md">
         <img
-          className="opacity-75 hover:opacity-100 object-cover h-full rounded-md"
+          className="opacity-75 hover:opacity-100 object-cover max-h-80 rounded-md"
           src={props.image}
           alt={props.image}
         />

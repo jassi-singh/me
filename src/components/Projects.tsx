@@ -2,20 +2,8 @@ import React from "react";
 import Title from "./Title";
 import useVisibility from "../hooks/useVisibility";
 import clsx from "clsx";
-import Project, { ProjectInterface } from "./Project";
-import cryptoFantasyPic from "../images/crypto-fantasy-dapp.png";
-
-const projects: ProjectInterface[] = [
-  {
-    name: "Crypto Fantasy Dapp",
-    githubUrl: "https://github.com/jassi-singh/crypto_fantasy_dapp",
-    url: "http://crypto-fantasy-dapp.vercel.app/",
-    description: "A fantasy sports dapp built on the Polygon blockchain. It allows users to create their own fantasy teams and compete with other users in a league.",
-    techStack: ["Next.js", "Solidity", "Polygon"],
-    image: cryptoFantasyPic,
-  },
-];
-
+import Project from "./Project";
+import { projects } from "../data";
 const Projects = () => {
   const [show, setShow] = React.useState(false);
   const ref = React.useRef(null);
@@ -40,7 +28,7 @@ const Projects = () => {
 
       <div
         className={clsx(
-          "transition-all ease-in-out duration-1000 flex flex-wrap place-content-center mt-10 gap-6",
+          "transition-all ease-in-out duration-1000 flex flex-col mt-10 gap-10",
           {
             "-translate-x-full opacity-0": !show,
           }
