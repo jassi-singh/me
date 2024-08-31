@@ -1,11 +1,11 @@
-import Link from "next/link";
+import NavButton from "@/components/nav-button";
 
 export default function Navbar() {
   return (
-    <nav className="my-8 flex gap-8 font-mono">
-      <Link href="/about">About</Link>
-      <Link href="/writings">Writings</Link>
-      <Link href="/devlogs">Devlogs</Link>
+    <nav className="relative mb-6 flex gap-2 font-mono">
+      <NavButton href="/">About</NavButton>
+      <NavButton href="/writings">Writings</NavButton>
+      <NavButton href="/devlogs">Devlogs</NavButton>
     </nav>
   );
 }
