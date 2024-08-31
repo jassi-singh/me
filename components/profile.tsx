@@ -11,7 +11,7 @@ export default function Profile() {
         className="rounded-full grayscale"
       />
       <h1 className="text-xl mt-4">Jaswinder Singh</h1>
-      <p className="text-gray-500">Software Engineer</p>
+      <p className="text-gray-500 font-mono">Software Engineer</p>
 
       <div className="mt-6 flex gap-6 items-center">
         <Social
@@ -25,7 +25,7 @@ export default function Profile() {
           alt={"Github"}
         />
         <Social
-          href={"https://linkedin.com/jassi-singh"}
+          href={"https://www.linkedin.com/in/jaswinder-singh-32a01118b/"}
           src={"/linkedIn.svg"}
           alt={"LinkedIn"}
         />

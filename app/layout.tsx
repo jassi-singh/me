@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Profile from "@/components/profile";
 import Navbar from "@/components/navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceMono = Space_Mono({ subsets: ["latin"], variable: "--font-mono", weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,15 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html className={`${inter.variable} ${spaceMono.variable}`} lang="en">
+      <body className='font-inter'>
         <main className="flex min-h-screen flex-col items-center p-8">
           <div className="max-w-3xl w-full">
             <Profile />
 
-            <div className="my-8 border-b border-gray-600" />
+            <div className="my-8 border-b border-gray-800" />
 
             <Navbar />
+
+            {children}
           </div>
         </main>
       </body>
