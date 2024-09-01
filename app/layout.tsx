@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Profile from "@/components/profile";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/navbar"; 
+import ThemeButton from "@/components/theme-button";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceMono = Space_Mono({
@@ -22,16 +23,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      className={`${inter.variable} ${spaceMono.variable}`}
-      lang="en"
-    >
-      <body className="font-inter">
+    <html className={`${inter.variable} ${spaceMono.variable}`} lang="en">
+      <body className="font-inter text-neutral-900 dark:text-neutral-100 bg-white dark:bg-black">
         <main className="flex min-h-screen flex-col items-center p-8">
+          <ThemeButton />
           <div className="max-w-3xl w-full">
             <Profile />
 
-            <div className="my-8 border-b border-gray-800" />
+            <div className="my-8 border-b border-neutral-200 dark:border-neutral-900" />
 
             <Navbar />
 

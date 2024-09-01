@@ -1,7 +1,6 @@
-
 /**
  * Combines multiple class names or conditional class objects into a single string.
- * 
+ *
  * @param classes - The class names or conditional class objects to be combined.
  * @returns The combined class names as a string.
  */

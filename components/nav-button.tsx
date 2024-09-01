@@ -18,13 +18,14 @@ const NavButton = ({
     <Link href={href}>
       <button
         className={cn("px-2 py-1 relative text-sm transition-colors", {
-          "text-black": isActive,
-          "text-gray-500 hover:text-white": !isActive,
+          "text-neutral-100": isActive,
+          "text-neutral-500 hover:text-neutral-900 dark:text-neutral-500 dark:hover:text-neutral-100":
+            !isActive,
         })}
       >
         <span className="relative z-10">{children}</span>
         {isActive && (
-          <span className="absolute inset-0 z-0 bg-gray-100 rounded-md" />
+          <span className="absolute inset-0 z-0 bg-neutral-700 rounded-md" />
         )}
       </button>
     </Link>

@@ -1,4 +1,8 @@
 import Image from "next/image";
+import TwitterIcon from "@/components/icons/twitter";
+import GithubIcon from "@/components/icons/github";
+import LinkedInIcon from "@/components/icons/linked-in";
+import EmailIcon from "@/components/icons/email";
 
 export default function Profile() {
   return (
@@ -11,28 +15,21 @@ export default function Profile() {
         className="rounded-full grayscale"
       />
       <h1 className="text-xl mt-4">Jaswinder Singh</h1>
-      <p className="text-gray-500 font-mono">Software Engineer</p>
+      <p className="text-neutral-500 font-mono">Software Engineer</p>
 
       <div className="mt-6 flex gap-6 items-center">
         <Social
           href={"https://twitter.com/jassiD2000"}
-          src={"/twitter.svg"}
-          alt={"Twitter"}
+          icon={<TwitterIcon />}
         />
-        <Social
-          href={"https://github.com/jassi-singh"}
-          src={"/github.svg"}
-          alt={"Github"}
-        />
+        <Social href={"https://github.com/jassi-singh"} icon={<GithubIcon />} />
         <Social
           href={"https://www.linkedin.com/in/jaswinder-singh-32a01118b/"}
-          src={"/linkedIn.svg"}
-          alt={"LinkedIn"}
+          icon={<LinkedInIcon />}
         />
         <Social
           href={"mailto:jaswinder.dandyan2000@gmail.com"}
-          src={"/email.svg"}
-          alt={"Email"}
+          icon={<EmailIcon />}
         />
       </div>
     </>
@@ -41,16 +38,18 @@ export default function Profile() {
 
 const Social = ({
   href,
-  src,
-  alt,
+  icon,
 }: Readonly<{
   href: string;
-  src: string;
-  alt: string;
+  icon: React.ReactElement;
 }>) => {
   return (
-    <a href={href} target="_blank">
-      <Image src={src} alt={alt} width={20} height={20} />
+    <a
+      href={href}
+      className="h-5 w-5 fill-neutral-900 dark:fill-neutral-100"
+      target="_blank"
+    >
+      {icon}
     </a>
   );
 };
