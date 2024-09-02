@@ -4,7 +4,7 @@ import SunIcon from "@/components/icons/sun";
 import MoonIcon from "@/components/icons/moon";
 
 export default function ThemeButton() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
@@ -28,7 +28,7 @@ export default function ThemeButton() {
   return (
     <button
       onClick={handleClick}
-      className="bg-neutral-800 p-3 rounded-full absolute top-4 right-4"
+      className="bg-neutral-700 p-3 rounded-full absolute top-4 right-4"
     >
       {isDarkMode ? (
         <SunIcon className="h-4 w-4 fill-white" />

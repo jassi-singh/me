@@ -1,31 +1,34 @@
+import { IBlog } from "@/lib/utils";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 
-type Blog = {
-  id: number;
-  title: string;
-  date: string;
-};
+function getAllBlogs(): IBlog[] {
+  const files = fs.readdirSync(
+    path.join(process.cwd(), "app", "writings", "posts")
+  );
+
+  return files.map((file) => {
+    const slug = file.replace(".mdx", "");
+    const dir = path.join(process.cwd(), "app", "writings", "posts", file);
+
+    const content = fs.readFileSync(dir, "utf8");
+
+    const title = content.split("\n")[0].replace("# ", "");
+    const createdAt = fs.statSync(dir).birthtime;
+
+    return {
+      id: slug,
+      title,
+      date: createdAt.toDateString(),
+    };
+  });
+}
 
 export default function WritingsPage() {
-  const allBlogs = [
-    {
-      id: 1,
-      title: "Blog 1",
-      date: "August 1, 2021",
-    },
-    {
-      id: 2,
-      title: "Blog 2",
-      date: "August 2, 2022",
-    },
-    {
-      id: 3,
-      title: "Blog 3",
-      date: "August 3, 2023",
-    },
-  ];
+  const allBlogs = getAllBlogs();
   return (
-    <ul className="space-y-4">
+    <ul className="flex flex-col gap-4">
       {allBlogs.map((blog) => (
         <Blog key={blog.id} blog={blog} />
       ))}
@@ -33,11 +36,12 @@ export default function WritingsPage() {
   );
 }
 
-const Blog = ({ blog }: { blog: Blog }) => {
+const Blog = ({ blog }: { blog: IBlog }) => {
   return (
-    <Link href={`/writings/${blog.title}`} className="flex gap-4">
-      <p className="text-neutral-500">{blog.date}</p>
-      <p>{blog.title}</p>
+    <Link href={`/writings/${blog.id}`}>
+      <p>
+        <span className="text-neutral-500 mr-4">{blog.date}</span> {blog.title}
+      </p>
     </Link>
   );
 };

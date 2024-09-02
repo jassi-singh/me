@@ -23,11 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${inter.variable} ${spaceMono.variable}`} lang="en">
-      <body className="font-inter text-neutral-900 dark:text-neutral-100 bg-white dark:bg-black">
+    <html className={`${inter.variable} ${spaceMono.variable} dark`} lang="en">
+      <body className="font-inter text-neutral-900 dark:text-neutral-100 bg-white dark:bg-black tracking-wide">
         <main className="flex min-h-screen flex-col items-center p-8">
           <ThemeButton />
-          <div className="max-w-3xl w-full">
+          <div className="max-w-xl w-full">
             <Profile />
 
             <div className="my-8 border-b border-neutral-200 dark:border-neutral-900" />

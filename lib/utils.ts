@@ -18,3 +18,9 @@ export function cn(
     )
     .join(" ");
 }
+
+export type IBlog = {
+  id: string;
+  title: string;
+  date: string;
+};
