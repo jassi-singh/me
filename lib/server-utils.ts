@@ -3,7 +3,7 @@ import path from "path";
 import { IBlog } from "./utils";
 
 export function getAllMdxFiles(dir: string): IBlog[] {
-  const filesPath = path.join(process.cwd(), dir);
+  const filesPath = path.join(process.cwd(), "markdown", dir);
   const files = fs.readdirSync(filesPath);
 
   return files.map((file) => {

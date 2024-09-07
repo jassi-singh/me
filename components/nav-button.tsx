@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -12,7 +11,6 @@ const NavButton = ({
   children: React.ReactNode;
 }>) => {
   const pathname = usePathname();
-  console.log(pathname);
   const isActive = pathname === href;
 
   return (
