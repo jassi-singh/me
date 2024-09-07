@@ -12,9 +12,9 @@ export default function Experience() {
           present
         />
 
-        <ExperienceItem position="Software Engineer" company="Fountane" />
+        <ExperienceItem position="Full Stack Intern" company="Curer" />
 
-        <ExperienceItem position="Software Engineer" company="Fountane" />
+        <ExperienceItem position="Full Stack Intern" company="Flunkey" />
       </ul>
     </>
   );
