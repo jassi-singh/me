@@ -1,32 +1,9 @@
+import { getAllMdxFiles } from "@/lib/server-utils";
 import { IBlog } from "@/lib/utils";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-
-function getAllBlogs(): IBlog[] {
-  const files = fs.readdirSync(
-    path.join(process.cwd(), "app", "posts")
-  );
-
-  return files.map((file) => {
-    const slug = file.replace(".mdx", "");
-    const dir = path.join(process.cwd(), "app", "posts", file);
-
-    const content = fs.readFileSync(dir, "utf8");
-
-    const title = content.split("\n")[0].replace("# ", "");
-    const createdAt = fs.statSync(dir).birthtime;
-
-    return {
-      id: slug,
-      title,
-      date: createdAt.toDateString(),
-    };
-  });
-}
 
 export default function WritingsPage() {
-  const allBlogs = getAllBlogs();
+  const allBlogs = getAllMdxFiles("blogs");
   return (
     <ul className="flex flex-col gap-4">
       {allBlogs.map((blog) => (

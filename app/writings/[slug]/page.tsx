@@ -2,7 +2,7 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 export default function Post({ params }: { params: { slug: string } }) {
-  const Blog = dynamic(() => import(`@/app/posts/${params.slug}.mdx`), {
+  const Blog = dynamic(() => import(`@/blogs/${params.slug}.mdx`), {
     ssr: true,
   });
 
