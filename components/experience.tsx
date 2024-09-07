@@ -32,8 +32,8 @@ const ExperienceItem = ({
   <div className="flex gap-4">
     <div
       className={cn("w-3 h-3 rounded-full mt-2 -translate-x-[50%]", {
-        "bg-neutral-800 dark:bg-neutral-500": present,
-        "bg-neutral-500 dark:bg-neutral-800": !present,
+        "bg-neutral-900 dark:bg-neutral-500": present,
+        "bg-neutral-500 dark:bg-neutral-900": !present,
       })}
     ></div>
     <div>
