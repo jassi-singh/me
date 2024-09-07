@@ -28,10 +28,10 @@ export default function ThemeButton() {
   return (
     <button
       onClick={handleClick}
-      className="bg-neutral-700 p-3 rounded-full absolute top-4 right-4"
+      className="bg-neutral-900 dark:bg-neutral-100 p-3 rounded-full absolute top-4 right-4"
     >
       {isDarkMode ? (
-        <SunIcon className="h-4 w-4 fill-white" />
+        <SunIcon className="h-4 w-4 fill-neutral-100 dark:fill-neutral-900" />
       ) : (
         <MoonIcon className="h-4 w-4 fill-white" />
       )}

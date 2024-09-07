@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${inter.variable} ${spaceMono.variable} dark`} lang="en">
-      <body className="font-inter text-neutral-700 dark:text-neutral-300 bg-white dark:bg-black">
+      <body className="font-inter text-neutral-900 dark:text-neutral-100 bg-white dark:bg-black">
         <main className="flex min-h-screen max-h-screen flex-col items-center p-8 pb-0">
           <ThemeButton />
           <div className="max-w-xl w-full flex flex-col flex-grow overflow-y-auto">

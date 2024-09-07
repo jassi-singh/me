@@ -20,7 +20,7 @@ export function getAllMdxFiles(dir: string): IBlog[] {
         published: false,
       };
 
-      const frontMatterRegex = /^---\n([\s\S]*?)\n---/;
+      const frontMatterRegex = /{\/\*\s*([\s\S]*?)\s*\*\/}/;
       const match = fileContent.match(frontMatterRegex);
 
       if (match) {
@@ -38,7 +38,7 @@ export function getAllMdxFiles(dir: string): IBlog[] {
               blog.title = value;
               break;
             case "date":
-              blog.date = value;
+              blog.date = new Date(value).toDateString();
               break;
             case "published":
               blog.published = value.toLowerCase() === "true";

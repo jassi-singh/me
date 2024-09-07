@@ -30,5 +30,9 @@ export default function Post({
     }
   );
 
-  return <Blog />;
+  return (
+    <div className="prose dark:prose-invert prose-neutral">
+      <Blog />
+    </div>
+  );
 }
