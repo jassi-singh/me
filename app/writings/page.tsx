@@ -5,12 +5,12 @@ import path from "path";
 
 function getAllBlogs(): IBlog[] {
   const files = fs.readdirSync(
-    path.join(process.cwd(), "app", "writings", "posts")
+    path.join(process.cwd(), "app", "posts")
   );
 
   return files.map((file) => {
     const slug = file.replace(".mdx", "");
-    const dir = path.join(process.cwd(), "app", "writings", "posts", file);
+    const dir = path.join(process.cwd(), "app", "posts", file);
 
     const content = fs.readFileSync(dir, "utf8");
 

@@ -1,16 +1,14 @@
 import React from "react";
-import fs from "fs";
-import path from "path";
+import dynamic from "next/dynamic";
 
 export default function Post({ params }: { params: { slug: string } }) {
-  const blog = fs.readFileSync(
-    path.join(process.cwd(), "app", "writings", "posts", `${params.slug}`),
-    "utf8"
-  );
+  const Blog = dynamic(() => import(`@/app/posts/${params.slug}.mdx`), {
+    ssr: true,
+  });
 
   return (
-    <>
-      {blog}
-    </>
+    <div className="prose max-w-none">
+      <Blog />
+    </div>
   );
 }
