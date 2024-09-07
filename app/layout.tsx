@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Profile from "@/components/profile";
-import Navbar from "@/components/navbar"; 
+import Navbar from "@/components/navbar";
 import ThemeButton from "@/components/theme-button";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -25,16 +25,15 @@ export default function RootLayout({
   return (
     <html className={`${inter.variable} ${spaceMono.variable} dark`} lang="en">
       <body className="font-inter text-neutral-900 dark:text-neutral-100 bg-white dark:bg-black tracking-wide">
-        <main className="flex min-h-screen flex-col items-center p-8">
+        <main className="flex min-h-screen max-h-screen flex-col items-center p-8 pb-0">
           <ThemeButton />
-          <div className="max-w-xl w-full">
+          <div className="max-w-xl w-full flex flex-col flex-grow overflow-y-auto">
             <Profile />
 
             <div className="my-8 border-b border-neutral-200 dark:border-neutral-900" />
 
             <Navbar />
-
-            {children}
+            <div className="w-full overflow-y-auto px-4 pb-8">{children}</div>
           </div>
         </main>
       </body>

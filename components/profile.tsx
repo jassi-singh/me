@@ -14,7 +14,7 @@ export default function Profile() {
         height={50}
         className="rounded-full grayscale"
       />
-      <h1 className="text-xl mt-4">Jaswinder Singh</h1>
+      <h1 className="text-xl mt-4">Jaswinder Singh (Jassi)</h1>
       <p className="text-neutral-500 font-mono">Software Engineer</p>
 
       <div className="mt-6 flex gap-6 items-center">
