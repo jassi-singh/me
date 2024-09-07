@@ -6,19 +6,50 @@ export function getAllMdxFiles(dir: string): IBlog[] {
   const filesPath = path.join(process.cwd(), "markdown", dir);
   const files = fs.readdirSync(filesPath);
 
-  return files.map((file) => {
-    const slug = file.replace(".mdx", "");
-    const dir = path.join(filesPath, file);
+  return files
+    .map((file) => {
+      const slug = file.replace(".mdx", "");
+      const dir = path.join(filesPath, file);
 
-    const content = fs.readFileSync(dir, "utf8");
+      const fileContent = fs.readFileSync(dir, "utf8");
 
-    const title = content.split("\n")[0].replace("# ", "");
-    const createdAt = fs.statSync(dir).birthtime;
+      const blog: IBlog = {
+        id: slug,
+        title: "",
+        date: "",
+        published: false,
+      };
 
-    return {
-      id: slug,
-      title,
-      date: createdAt.toDateString(),
-    };
-  });
+      const frontMatterRegex = /^---\n([\s\S]*?)\n---/;
+      const match = fileContent.match(frontMatterRegex);
+
+      if (match) {
+        const frontMatterLines = match[1].split("\n");
+
+        frontMatterLines.forEach((line) => {
+          const [key, ...rest] = line.split(":");
+          const value = rest.join(":").trim();
+
+          switch (key.trim()) {
+            case "id":
+              blog.id = value;
+              break;
+            case "title":
+              blog.title = value;
+              break;
+            case "date":
+              blog.date = value;
+              break;
+            case "published":
+              blog.published = value.toLowerCase() === "true";
+              break;
+            default:
+              break;
+          }
+        });
+      }
+
+      return blog;
+    })
+    .filter((blog) => blog.published);
 }

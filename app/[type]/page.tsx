@@ -5,6 +5,10 @@ import { notFound } from "next/navigation";
 
 const ALLOWED_TYPES = ["writings", "devlogs"];
 
+export async function generateStaticParams() {
+  return ALLOWED_TYPES.map((type) => ({ type }));
+}
+
 export default function WritingsPage({ params }: { params: { type: string } }) {
   if (!ALLOWED_TYPES.includes(params.type)) {
     return notFound();

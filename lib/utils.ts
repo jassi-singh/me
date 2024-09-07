@@ -23,4 +23,5 @@ export type IBlog = {
   id: string;
   title: string;
   date: string;
+  published: boolean;
 };
