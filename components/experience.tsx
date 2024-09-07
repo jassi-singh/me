@@ -4,7 +4,7 @@ import React from "react";
 export default function Experience() {
   return (
     <>
-      <h1 className="font-mono text-lg mb-8">Experience</h1>
+      <h1 className="font-bold font-mono text-lg mb-8">Experience</h1>
       <ul className="space-y-10 border-l border-neutral-800">
         <ExperienceItem
           position="Software Engineer"
@@ -36,7 +36,7 @@ const ExperienceItem = ({
         "bg-neutral-500 dark:bg-neutral-800": !present,
       })}
     ></div>
-    <div className="font-mono">
+    <div>
       <div className="flex gap-4">
         <h2>{position}</h2>
         {present && (

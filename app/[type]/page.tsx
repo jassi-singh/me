@@ -9,7 +9,7 @@ export default function WritingsPage({ params }: { params: { type: string } }) {
   if (!ALLOWED_TYPES.includes(params.type)) {
     return notFound();
   }
-  
+
   const allBlogs = getAllMdxFiles(params.type);
   return (
     <ul className="flex flex-col gap-4">
@@ -24,7 +24,10 @@ const Blog = ({ blog, type }: { blog: IBlog; type: string }) => {
   return (
     <Link href={`/${type}/${blog.id}`}>
       <p>
-        <span className="text-neutral-500 mr-4">{blog.date}</span> {blog.title}
+        <span className="text-neutral-500 mr-4 font-mono italic">
+          {blog.date}
+        </span>{" "}
+        {blog.title}
       </p>
     </Link>
   );

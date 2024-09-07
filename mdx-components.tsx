@@ -17,7 +17,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: ({ children, href }) => (
       <a
         href={href}
-        className="text-neutral-400 hover:underline italic"
+        className="text-neutral-400 hover:underline italic font-mono"
       >
         {children}
       </a>
