@@ -1,9 +1,77 @@
 {/*
 title: Build Static sites with Next.js 14
 date: 2024-09-07
-published: false
+published: true
 */}
 
 # Build Static sites with Next.js 14
 
-You have always wondered what does rendering on demand or dynamic page means in the Next.js build output.
+In Next.js, there are two types of routes you can create: static routes and dynamic routes.
+
+Static routes are used when the URL segment for the page is already known. Pages built this way are static pages generated at build time only.
+
+However, some routes in an application may not have a known URL beforehand, such as in a blogging site where URLs might look like `/blogs/:id`, where id represents a unique identifier for each blog post.
+
+For such cases, we create dynamic routes in Next.js. A dynamic route can be set up by creating a folder with the parameter name inside square brackets, such as `[id]`. The parameter’s value can then be accessed within the page like this:
+
+```ts
+// [id]/page.tsx
+
+export default async function Page({ params }: { params: { id: string } }) {
+  
+  const blog = await fetch(`https://localhost:4000/blog/${params.id}`)
+
+  return <Blog blog={blog}>
+}
+```
+
+The challenge with dynamic pages is that they are not generated at build time. Instead, they are built at runtime when a specific page is accessed by a client. This can be inefficient if the content of the page remains unchanged for a given `id`.
+
+## Why Static Generation?
+Before moving to how we can generate dynamic pages at build time lets know what are advantages of using it.
+
+**Performance :** Static pages are pre-rendered at build time so they can be directly fetched from the server or CDN. There is no server process so it leads to faster load times.
+
+**Cost :** Hosting static sites is cheaper as they require minimal server resources.
+
+**SEO Benefits:** Static pages are easily crawled and indexed by search engines, often leading to better rankings.
+
+## Generating Static Pages for Dynamic Routes
+
+To make the entire application static, including dynamic routes, you can use `generateStaticParams()` to build all possible paths at build time. This function generates different versions of the dynamic page during the build process and will only rebuild a page if it has not already been generated.
+
+If you want to serve only statically built pages and avoid building any pages at runtime (returning a 404 for all other paths), you can set:
+
+```ts
+export const dynamicParams = false;
+```
+
+Here's the above example with `generateStaticParams()`:
+
+```ts
+// [id]/page.tsx
+
+export async function generateStaticParams() {
+  const allBlogs = await fetch('https://api/blogs');
+
+  return allBlogs.map((blog) => ({id: blog.id}));
+  // or return an array
+  // return [{id: 1},{id: 2}];
+}
+
+export default async function Page({ params }: { params: { id: string } }) {
+  
+  const blog = await fetch(`https://api/blog/${params.id}`)
+
+  return <Blog blog={blog}/>
+}
+```
+
+## Conclusion
+
+Using generateStaticParams() allows you to pre-build dynamic routes, making your Next.js app faster and more efficient. Setting dynamicParams = false ensures that only the predefined static pages are served, enhancing performance and user experience by eliminating the need to generate pages at runtime.
+
+
+This approach is particularly useful for sites like blogs, where the content for a specific page doesn’t frequently change, allowing you to leverage the full benefits of static generation in Next.js.
+
+While static sites have many benefits, the best rendering strategy depends on your use case. For sites requiring frequent content updates or personalized user experiences, SSG might not be the right choice.
