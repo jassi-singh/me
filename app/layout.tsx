@@ -4,7 +4,6 @@ import "./globals.css";
 import Profile from "@/components/profile";
 import Navbar from "@/components/navbar";
 import ThemeButton from "@/components/theme-button";
-import { hostname } from "os";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceMono = Space_Mono({
@@ -28,7 +27,7 @@ export default function RootLayout({
       <body className="font-inter text-neutral-900 dark:text-neutral-100 bg-white dark:bg-black">
         <main className="flex min-h-screen max-h-screen flex-col items-center p-8 pb-0">
           <ThemeButton />
-          <div className="max-w-xl w-full flex flex-col flex-grow overflow-y-auto">
+          <div className="max-w-2xl w-full flex flex-col flex-grow overflow-y-auto">
             <Profile />
 
             <div className="my-8 border-b border-neutral-200 dark:border-neutral-900" />

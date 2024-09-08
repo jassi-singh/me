@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -24,4 +23,8 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background-color: #404040;
+}
+
+code {
+  font-size: 14px !important;
 }

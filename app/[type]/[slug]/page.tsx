@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { getAllMdxFiles } from "@/lib/server-utils";
+import PrismLoader from "@/components/prism-loader";
 
 export const dynamicParams = false;
 
@@ -35,6 +36,7 @@ export default function Post({
   return (
     <div className="prose dark:prose-invert prose-neutral">
       <Blog />
+      <PrismLoader />
     </div>
   );
 }
