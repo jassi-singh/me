@@ -51,5 +51,8 @@ export function getAllMdxFiles(dir: string): IBlog[] {
 
       return blog;
     })
-    .filter((blog) => blog.published);
+    .filter((blog) => blog.published)
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
 }
