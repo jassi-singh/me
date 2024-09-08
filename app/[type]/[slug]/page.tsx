@@ -2,6 +2,8 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { getAllMdxFiles } from "@/lib/server-utils";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const allWritings = getAllMdxFiles("writings");
   const allDevlogs = getAllMdxFiles("devlogs");

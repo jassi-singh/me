@@ -1,18 +1,16 @@
 import { getAllMdxFiles } from "@/lib/server-utils";
 import { IBlog } from "@/lib/utils";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 const ALLOWED_TYPES = ["writings", "devlogs"];
+
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return ALLOWED_TYPES.map((type) => ({ type }));
 }
 
 export default function WritingsPage({ params }: { params: { type: string } }) {
-  if (!ALLOWED_TYPES.includes(params.type)) {
-    return notFound();
-  }
 
   const allBlogs = getAllMdxFiles(params.type);
   return (
