@@ -1,51 +1,100 @@
-import { cn } from "@/lib/utils";
-import React from "react";
+import SectionLabel from "@/components/section-label";
+
+type ExpItem = {
+  company: string;
+  metaLines: string[];
+  title: string;
+  /** One or more paragraphs for scanability */
+  body: string[];
+  tags: string[];
+};
+
+const items: ExpItem[] = [
+  {
+    company: "Fountane",
+    metaLines: ["Apr 2023 – Present", "Hyderabad"],
+    title: "Software Engineer II",
+    body: [
+      "Sub-led 7–10 engineers on a multi-tenant hospitality/PMS platform—turning client requirements into designs for the team and tech lead—and shipped HMS modules 25% faster than the prior baseline. Built and operated core Go microservices and REST APIs with deliberate lifecycle patterns; owned PostgreSQL and Redis reservation workflows for consistency and zero-downtime deploys; delivered Stripe/FortisPay with JWT-based RBAC.",
+      "Automated 5+ mission-critical paths using MSSQL triggers and jobs, cutting manual intervention about 10%. Owned Dockerized CI/CD (including GitHub Actions), reducing release effort roughly 15% and improving deployment reliability.",
+    ],
+    tags: [
+      "Go",
+      "PostgreSQL",
+      "Redis",
+      "MSSQL",
+      "Docker",
+      "Stripe",
+      "JWT/RBAC",
+      "GitHub Actions",
+    ],
+  },
+  {
+    company: "Maven Lifecare (Curer)",
+    metaLines: ["Nov 2021 – Apr 2023", "Remote"],
+    title: "Software Engineer Intern",
+    body: [
+      "End-to-end React Native delivery: payment gateways and backend APIs, RTC/RTM, deep linking, and localization—targeting roughly 10% better accessibility and usability on key flows.",
+      "Added video calling and FCM push notifications (engagement lift ~5% on measured surfaces). Shipped production builds to Play Store and App Store with stable release cadence.",
+    ],
+    tags: [
+      "React Native",
+      "Payments",
+      "RTC/RTM",
+      "FCM",
+      "TypeScript",
+    ],
+  },
+];
 
 export default function Experience() {
   return (
-    <>
-      <h1 className="font-bold font-mono text-lg mb-8">Experience</h1>
-      <ul className="space-y-10 border-l border-neutral-800">
-        <ExperienceItem
-          position="Software Engineer"
-          company="Fountane"
-          present
-        />
-
-        <ExperienceItem position="Full Stack Intern" company="Curer" />
-
-        <ExperienceItem position="Full Stack Intern" company="Flunkey" />
-      </ul>
-    </>
+    <section className="mb-[72px]" id="experience">
+      <SectionLabel>experience</SectionLabel>
+      <div>
+        {items.map((item) => (
+          <div
+            key={item.company}
+            className="grid grid-cols-1 gap-2 border-b border-terminal-border py-5 first:border-t sm:grid-cols-[160px_1fr] sm:gap-6"
+          >
+            <div className="text-[13px] leading-relaxed text-terminal-dim">
+              <strong className="mb-0 block font-normal text-terminal-fg">
+                {item.company}
+              </strong>
+              {item.metaLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
+            </div>
+            <div>
+              <h3 className="mb-2 text-[15px] font-medium text-terminal-fg">
+                {item.title}
+              </h3>
+              <div className="space-y-3">
+                {item.body.map((paragraph, i) => (
+                  <p
+                    key={`${item.company}-${i}`}
+                    className="text-[14px] leading-[1.75] text-terminal-muted"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <div className="mt-2.5 flex flex-wrap gap-1.5">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-terminal-border px-2 py-0.5 text-[12px] tracking-[0.03em] text-terminal-dim"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
-
-const ExperienceItem = ({
-  position,
-  company,
-  present = false,
-}: {
-  position: string;
-  company: string;
-  present?: boolean;
-}) => (
-  <div className="flex gap-4">
-    <div
-      className={cn("w-3 h-3 rounded-full mt-2 -translate-x-[50%]", {
-        "bg-neutral-900 dark:bg-neutral-500": present,
-        "bg-neutral-500 dark:bg-neutral-900": !present,
-      })}
-    ></div>
-    <div>
-      <div className="flex gap-4">
-        <h2>{position}</h2>
-        {present && (
-          <span className="border rounded-full text-xs px-2 py-1 text-neutral-500 border-neutral-600">
-            Present
-          </span>
-        )}
-      </div>
-      <p className="text-sm text-neutral-500">{company}</p>
-    </div>
-  </div>
-);
