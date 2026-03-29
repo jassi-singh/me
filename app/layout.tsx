@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import SiteFooter from "@/components/site-footer";
+import { themeScript } from "@/components/theme-script";
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -23,8 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={ibmPlexMono.variable} lang="en">
+    <html className={ibmPlexMono.variable} lang="en" suppressHydrationWarning>
       <body className="font-mono">
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: themeScript() }}
+        />
         <div className="shell-stagger mx-auto max-w-shell px-8 pb-[120px] pt-[60px]">
           <Navbar />
           {children}

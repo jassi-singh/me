@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SocialIconLinks from "@/components/social-icon-links";
 
 export default function Hero() {
   return (
@@ -21,6 +22,7 @@ export default function Hero() {
         <br />
         and tools I want to exist.
       </p>
+      <SocialIconLinks className="mt-6" />
       <div className="mt-8 flex flex-wrap items-center gap-5">
         <Link
           className="inline-flex items-center gap-2 border border-terminal-accent px-[18px] py-2.5 text-[13px] tracking-[0.06em] text-terminal-accent transition-colors duration-150 hover:bg-terminal-accent hover:text-terminal-bg"
@@ -28,12 +30,6 @@ export default function Hero() {
         >
           view projects
         </Link>
-        <a
-          className="text-[13px] tracking-[0.05em] text-terminal-dim transition-colors duration-150 hover:text-terminal-fg"
-          href="mailto:jaswinder.dandyan2000@gmail.com"
-        >
-          email →
-        </a>
       </div>
     </div>
   );

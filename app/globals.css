@@ -2,6 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * 60-30-10 palette (per theme)
+ * 60% — dominant: page background (--terminal-bg)
+ * 30% — secondary: structure, borders, body/supporting text (--terminal-fg, --terminal-muted, --terminal-dim, --terminal-border, --terminal-hover)
+ * 10% — accent: links, labels, CTAs (--terminal-accent)
+ */
+:root {
+  color-scheme: light;
+  /* 60% */
+  --terminal-bg: #f3f1eb;
+  /* 30% — primary text + surfaces */
+  --terminal-fg: #252420;
+  --terminal-muted: #5a5852;
+  --terminal-dim: #8a877c;
+  --terminal-border: #dad6cc;
+  --terminal-hover: #e8e4da;
+  /* 10% */
+  --terminal-accent: #0f766e;
+  /* Code blocks (Okaidia) stay fixed for readability */
+  --prism-pre-bg: #272822;
+  --prism-pre-border: #2e2e2c;
+  --prism-code-fg: #f8f8f2;
+}
+
+.dark {
+  color-scheme: dark;
+  /* 60% */
+  --terminal-bg: #0d0d0d;
+  /* 30% */
+  --terminal-fg: #f2f2ec;
+  --terminal-muted: #c4c4bc;
+  --terminal-dim: #94948a;
+  --terminal-border: #2e2e2c;
+  --terminal-hover: #1c1c1a;
+  /* 10% */
+  --terminal-accent: #7dd3fc;
+}
+
+/* Prism Okaidia + MDX: class is usually on `code`, not `pre` */
+.prose-blog pre[class*="language-"],
+.prose-blog pre:has(> code[class*="language-"]) {
+  background: var(--prism-pre-bg) !important;
+  padding: 1em;
+  margin: 1rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--prism-pre-border);
+  border-radius: 0;
+}
+.prose-blog pre[class*="language-"] code,
+.prose-blog pre:has(> code[class*="language-"]) code {
+  background: transparent !important;
+  color: var(--prism-code-fg);
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+}
+
 @layer base {
   html {
     font-size: 15px;

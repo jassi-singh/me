@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,14 +11,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /* Values from globals.css (:root / .dark) — 60-30-10 documented there */
         terminal: {
-          bg: "#0d0d0d",
-          fg: "#f2f2ec",
-          muted: "#c4c4bc",
-          dim: "#94948a",
-          accent: "#7dd3fc",
-          border: "#2e2e2c",
-          hover: "#1c1c1a",
+          bg: "var(--terminal-bg)",
+          fg: "var(--terminal-fg)",
+          muted: "var(--terminal-muted)",
+          dim: "var(--terminal-dim)",
+          accent: "var(--terminal-accent)",
+          border: "var(--terminal-border)",
+          hover: "var(--terminal-hover)",
         },
       },
       fontFamily: {

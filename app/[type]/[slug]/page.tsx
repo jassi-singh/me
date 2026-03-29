@@ -3,6 +3,10 @@ import dynamic from "next/dynamic";
 import { getAllMdxFiles } from "@/lib/server-utils";
 import Link from "next/link";
 
+const PrismLoader = dynamic(() => import("@/components/prism-loader"), {
+  ssr: false,
+});
+
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -36,8 +40,9 @@ export default function Post({
           ← writing
         </Link>
       </p>
-      <article className="prose prose-invert max-w-none prose-headings:font-medium prose-headings:text-terminal-fg prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-p:text-[15px] prose-p:leading-[1.75] prose-p:text-terminal-muted prose-li:text-[15px] prose-li:leading-[1.75] prose-li:text-terminal-muted prose-strong:text-terminal-fg prose-code:rounded-none prose-code:bg-terminal-hover prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[13px] prose-code:text-terminal-accent prose-pre:border prose-pre:border-terminal-border prose-pre:bg-terminal-hover prose-pre:text-[13px] prose-pre:leading-relaxed prose-pre:text-terminal-fg [&_a]:text-terminal-accent [&_a]:no-underline [&_a]:underline-offset-4 [&_a:hover]:underline">
+      <article className="prose prose-neutral dark:prose-invert prose-blog max-w-none prose-headings:font-medium prose-headings:text-terminal-fg prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-p:text-[15px] prose-p:leading-[1.75] prose-p:text-terminal-muted prose-li:text-[15px] prose-li:leading-[1.75] prose-li:text-terminal-muted prose-strong:text-terminal-fg prose-code:rounded-none prose-code:bg-terminal-hover prose-code:px-1.5 prose-code:py-0.5 prose-code:text-[13px] prose-code:text-terminal-accent prose-pre:m-0 prose-pre:border-0 prose-pre:bg-transparent prose-pre:p-0 prose-pre:leading-relaxed [&_a]:text-terminal-accent [&_a]:no-underline [&_a]:underline-offset-4 [&_a:hover]:underline [&_pre_code]:block [&_pre_code]:p-0 [&_pre_code]:text-[13px] [&_pre_code]:leading-relaxed">
         <Blog />
+        <PrismLoader slug={params.slug} />
       </article>
     </>
   );
